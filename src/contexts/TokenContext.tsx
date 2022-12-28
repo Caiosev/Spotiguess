@@ -1,10 +1,10 @@
-import { createContext, FC, useEffect, useState } from 'react';
+import { createContext, FC, useContext, useEffect, useState } from 'react';
 
 import getToken from '../utils/getToken';
 
 const TokenContext = createContext({ token: '' });
 
-const TokenProvider: FC<React.ReactNode> = ({ children }) => {
+export const TokenProvider: FC<React.ReactNode> = ({ children }) => {
   const [token, setToken] = useState('');
 
   useEffect(() => {
@@ -17,4 +17,4 @@ const TokenProvider: FC<React.ReactNode> = ({ children }) => {
   return <TokenContext.Provider value={{ token }}>{children}</TokenContext.Provider>;
 };
 
-export default TokenProvider;
+export const useTokenContext = () => useContext(TokenContext);

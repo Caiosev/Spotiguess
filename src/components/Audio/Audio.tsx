@@ -14,13 +14,17 @@ export default function Audio() {
   };
   return (
     <div>
-      <StyledAudio id="audio-element" controls src={music?.items[0].preview_url} />
-      <AiFillPlayCircle
-        id="iconPlay"
-        size="50px"
-        color="1ed760"
-        onClick={() => playAudio()}
-      />
+      {music && (
+        <>
+          <StyledAudio id="audio-element" controls src={music?.items[0].preview_url} />
+          <AiFillPlayCircle
+            id="iconPlay"
+            size="50px"
+            color="1ed760"
+            onClick={() => playAudio()}
+          />
+        </>
+      )}
     </div>
   );
 }

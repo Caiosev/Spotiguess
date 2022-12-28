@@ -1,6 +1,6 @@
 import React from 'react';
 
-import coverMock from '../../../resources/cover_mock.jpg';
+import { useMusicContext } from '../../contexts/MusicContex';
 import {
   StyledWrapperArtistName,
   StyledWrapperCard,
@@ -9,17 +9,18 @@ import {
 } from './Card.style';
 
 export default function Card() {
+  const { music } = useMusicContext();
+
   return (
     <StyledWrapperCard>
       <StyledWrapperCover>
-        <img src={coverMock} alt="" />
+        <img src={music?.items[0].album.images[0].url} alt="" />
       </StyledWrapperCover>
       <StyledWrapperTitlePlayer>
-        <h2>Starboy</h2>
-        {/* play */}
+        <h2>{music?.items[0].name}</h2>
       </StyledWrapperTitlePlayer>
       <StyledWrapperArtistName>
-        <span>The weeknd</span>
+        <span>{music?.items[0].artists[0].name}</span>
       </StyledWrapperArtistName>
     </StyledWrapperCard>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
-import { AiFillPlayCircle } from 'react-icons/ai';
 
 // import { IoMdCheckmark, IoMdClose } from 'react-icons/io';
 import { StyledInput, StyledWrapperApp, StyledWrapperInput } from './App.style';
+import Audio from './components/Audio/Audio';
 import Card from './components/Card/Card';
 import { MusicProvider } from './contexts/MusicContex';
 import { TokenProvider } from './contexts/TokenContext';
@@ -12,7 +12,7 @@ function App() {
     <TokenProvider>
       <MusicProvider>
         <StyledWrapperApp>
-          <AiFillPlayCircle id="iconPlay" size="50px" color="1ed760" />
+          <Audio />
           <Card />
           <StyledWrapperInput>
             <StyledInput />

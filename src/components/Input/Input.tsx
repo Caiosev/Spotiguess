@@ -10,10 +10,15 @@ export default function Input() {
   const [isCorrectAnwser, setIsCorrectAnswer] = React.useState<boolean | null>(null);
 
   const handleSubmit = () => {
-    if (inputName === music?.items[0].name) {
+    console.log(
+      inputName.toLowerCase() === music?.items[0].artists[0].name.toLowerCase(),
+    );
+    if (inputName.toLowerCase() === music?.items[0].name.toLowerCase()) {
       setIsCorrectSongName(true);
       setIsCorrectAnswer(true);
-    } else if (inputName === music?.items[0].artists[0].name) {
+    } else if (
+      inputName.toLowerCase() === music?.items[0].artists[0].name.toLowerCase()
+    ) {
       setisCorrectArtistName(true);
       setIsCorrectAnswer(true);
     } else {

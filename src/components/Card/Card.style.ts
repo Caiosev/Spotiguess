@@ -45,6 +45,9 @@ export const StyledWrapperTitlePlayer = styled.div<BlurProps>`
     font-size: 1.2rem;
     font-weight: 700;
   }
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 `;
 
 export const StyledWrapperArtistName = styled.div<BlurProps>`
@@ -52,6 +55,9 @@ export const StyledWrapperArtistName = styled.div<BlurProps>`
   font-weight: 400;
   color: #a6a6a6;
   filter: ${(props) => (props.blur ? 'blur(8px)' : '')};
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 `;
 
 export const StyledUnblurredArea = styled.div`

@@ -12,8 +12,8 @@ function App() {
     <TokenProvider>
       <MusicProvider>
         <StyledWrapperApp>
-          <Audio />
           <Card />
+          <Audio />
           <Input />
         </StyledWrapperApp>
       </MusicProvider>

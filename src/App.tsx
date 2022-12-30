@@ -1,9 +1,9 @@
 import React from 'react';
 
-// import { IoMdCheckmark, IoMdClose } from 'react-icons/io';
-import { StyledInput, StyledWrapperApp, StyledWrapperInput } from './App.style';
+import { StyledWrapperApp } from './App.style';
 import Audio from './components/Audio/Audio';
 import Card from './components/Card/Card';
+import Input from './components/Input/Input';
 import { MusicProvider } from './contexts/MusicContex';
 import { TokenProvider } from './contexts/TokenContext';
 
@@ -14,11 +14,7 @@ function App() {
         <StyledWrapperApp>
           <Audio />
           <Card />
-          <StyledWrapperInput>
-            <StyledInput />
-            {/* <IoMdCheckmark className="result" size="25px" /> */}
-            {/* <IoMdClose className="result" size="25px" /> */}
-          </StyledWrapperInput>
+          <Input />
         </StyledWrapperApp>
       </MusicProvider>
     </TokenProvider>

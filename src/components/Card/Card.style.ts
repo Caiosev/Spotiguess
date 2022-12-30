@@ -2,6 +2,11 @@ import styled from 'styled-components';
 
 interface ImageProps {
   url: string;
+  blur: boolean;
+}
+
+interface BlurProps {
+  blur: boolean;
 }
 
 export const StyledWrapperCard = styled.div`
@@ -30,11 +35,11 @@ export const StyledWrapperCover = styled.div`
   }
 `;
 
-export const StyledWrapperTitlePlayer = styled.div`
+export const StyledWrapperTitlePlayer = styled.div<BlurProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  filter: blur(8px);
+  filter: ${(props) => (props.blur ? 'blur(8px)' : '')};
 
   h2 {
     font-size: 1.2rem;
@@ -42,11 +47,11 @@ export const StyledWrapperTitlePlayer = styled.div`
   }
 `;
 
-export const StyledWrapperArtistName = styled.div`
+export const StyledWrapperArtistName = styled.div<BlurProps>`
   font-size: 1rem;
   font-weight: 400;
   color: #a6a6a6;
-  filter: blur(8px);
+  filter: ${(props) => (props.blur ? 'blur(8px)' : '')};
 `;
 
 export const StyledUnblurredArea = styled.div`
@@ -73,7 +78,7 @@ export const ImageCover = styled.div<ImageProps>`
   }
 
   &:before {
-    filter: blur(10px);
+    filter: ${(props) => (props.blur ? 'blur(10px)' : '')};
   }
 
   &:after {

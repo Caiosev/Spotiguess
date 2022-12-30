@@ -3,6 +3,8 @@ import ReactLoading from 'react-loading';
 
 import { useMusicContext } from '../../contexts/MusicContex';
 import {
+  ImageCover,
+  StyledUnblurredArea,
   StyledWrapperArtistName,
   StyledWrapperCard,
   StyledWrapperCover,
@@ -17,7 +19,8 @@ export default function Card() {
       {music ? (
         <>
           <StyledWrapperCover>
-            <img src={music?.items[0].album.images[0].url} alt="" />
+            <ImageCover url={music?.items[0].album.images[0].url} />
+            <StyledUnblurredArea />
           </StyledWrapperCover>
           <StyledWrapperTitlePlayer>
             <h2>{music?.items[0].name}</h2>

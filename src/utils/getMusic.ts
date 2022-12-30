@@ -3,7 +3,7 @@ import words from 'random-words';
 import { Music } from '../types/Music';
 
 const valdateTrack = (data: any) => {
-  if (data.tracks.items[0].popularity < 60) {
+  if (data.tracks.items[0].popularity < 60 || data.tracks.total === 0) {
     return false;
   }
   return true;

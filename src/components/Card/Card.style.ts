@@ -34,6 +34,7 @@ export const StyledWrapperTitlePlayer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  filter: blur(8px);
 
   h2 {
     font-size: 1.2rem;
@@ -45,6 +46,7 @@ export const StyledWrapperArtistName = styled.div`
   font-size: 1rem;
   font-weight: 400;
   color: #a6a6a6;
+  filter: blur(8px);
 `;
 
 export const StyledUnblurredArea = styled.div`

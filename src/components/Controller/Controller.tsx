@@ -1,12 +1,26 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
-import { AiFillForward, AiFillPlayCircle } from 'react-icons/ai';
+import {
+  AiFillForward,
+  AiFillPlayCircle,
+  AiFillStepForward,
+  AiOutlineReload,
+} from 'react-icons/ai';
 
 import { useMusicContext } from '../../contexts/MusicContex';
-import { StyledAudio, StyledWrapperControllers } from './Controller.style';
+import {
+  StyledAudio,
+  StyledContainerController,
+  StyledWrapperControllers,
+} from './Controller.style';
 
 export default function Audio() {
   const { music, isCorrectArtistName, isCorrectSongName } = useMusicContext();
+
+  const handleReset = () => {
+    localStorage.setItem('streak', '0');
+    location.reload();
+  };
 
   const handleNextMusic = () => {
     const streak = localStorage.getItem('streak');
@@ -42,12 +56,26 @@ export default function Audio() {
               onClick={() => handleNextMusic()}
             />
           ) : (
-            <AiFillPlayCircle
-              id="iconPlay"
-              size="50px"
-              color="1ed760"
-              onClick={() => playAudio()}
-            />
+            <StyledContainerController>
+              <AiOutlineReload
+                id="iconReload"
+                size="30px"
+                color="fff"
+                onClick={() => handleReset()}
+              />
+              <AiFillPlayCircle
+                id="iconPlay"
+                size="50px"
+                color="1ed760"
+                onClick={() => playAudio()}
+              />
+              <AiFillStepForward
+                id="iconFoward"
+                size="30px"
+                color="fff"
+                onClick={() => playAudio()}
+              />
+            </StyledContainerController>
           )}
         </>
       )}

@@ -10,11 +10,17 @@ export type MusicState = {
   setIsCorrectSongName: (isCorrectSongName: boolean) => void;
   isCorrectArtistName: boolean;
   setisCorrectArtistName: (isCorrectArtistName: boolean) => void;
+  showCover: boolean;
+  setShowCover: (showCover: boolean) => void;
 };
 
 const MusicContext = createContext<MusicState>({
   music: null,
   isCorrectSongName: false,
+  showCover: false,
+  setShowCover: () => {
+    /* */
+  },
   setIsCorrectSongName: () => {
     /* */
   },
@@ -28,6 +34,9 @@ export const MusicProvider: FC<React.ReactNode> = ({ children }) => {
   const [music, setMusic] = useState<Music | null>(null);
   const [isCorrectSongName, setIsCorrectSongName] = useState<boolean>(false);
   const [isCorrectArtistName, setisCorrectArtistName] = useState<boolean>(false);
+  const [showCover, setShowCover] = useState<boolean>(
+    isCorrectSongName && isCorrectArtistName ? true : false,
+  );
 
   const { token } = useTokenContext();
 
@@ -46,6 +55,8 @@ export const MusicProvider: FC<React.ReactNode> = ({ children }) => {
         setIsCorrectSongName,
         isCorrectArtistName,
         setisCorrectArtistName,
+        showCover,
+        setShowCover,
       }}
     >
       {children}

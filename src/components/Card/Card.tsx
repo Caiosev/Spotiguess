@@ -12,17 +12,14 @@ import {
 } from './Card.style';
 
 export default function Card() {
-  const { music, isCorrectArtistName, isCorrectSongName } = useMusicContext();
+  const { music, isCorrectArtistName, isCorrectSongName, showCover } = useMusicContext();
 
   return (
     <StyledWrapperCard>
       {music ? (
         <>
           <StyledWrapperCover>
-            <ImageCover
-              url={music?.items[0].album.images[0].url}
-              blur={isCorrectArtistName && isCorrectSongName ? false : true}
-            />
+            <ImageCover url={music?.items[0].album.images[0].url} blur={!showCover} />
             <StyledUnblurredArea />
           </StyledWrapperCover>
           <StyledWrapperTitlePlayer blur={!isCorrectSongName}>

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React from 'react';
+import React, { useState } from 'react';
 import {
+  AiFillEye,
   AiFillForward,
   AiFillPlayCircle,
   AiFillStepForward,
@@ -15,11 +16,28 @@ import {
 } from './Controller.style';
 
 export default function Audio() {
-  const { music, isCorrectArtistName, isCorrectSongName } = useMusicContext();
+  const [numberHints, setNumberHints] = useState<number>(0);
+
+  const {
+    music,
+    isCorrectArtistName,
+    setisCorrectArtistName,
+    isCorrectSongName,
+    setShowCover,
+  } = useMusicContext();
 
   const handleReset = () => {
     localStorage.setItem('streak', '0');
     location.reload();
+  };
+
+  const handleShowHint = () => {
+    setNumberHints(numberHints + 1);
+    if (!isCorrectArtistName) {
+      setisCorrectArtistName(true);
+      return;
+    }
+    setShowCover(true);
   };
 
   const handleNextMusic = () => {
@@ -44,7 +62,7 @@ export default function Audio() {
   };
 
   return (
-    <StyledWrapperControllers>
+    <StyledWrapperControllers activeEye={numberHints >= 2 ? false : true}>
       {music && (
         <>
           <StyledAudio id="audio-element" controls src={music?.items[0].preview_url} />
@@ -57,11 +75,11 @@ export default function Audio() {
             />
           ) : (
             <StyledContainerController>
-              <AiOutlineReload
-                id="iconReload"
+              <AiFillEye
+                id="iconEye"
                 size="30px"
-                color="fff"
-                onClick={() => handleReset()}
+                color={numberHints >= 2 ? '1d1d1d' : 'fff'}
+                onClick={() => handleShowHint()}
               />
               <AiFillPlayCircle
                 id="iconPlay"
@@ -73,7 +91,7 @@ export default function Audio() {
                 id="iconFoward"
                 size="30px"
                 color="fff"
-                onClick={() => playAudio()}
+                onClick={() => handleReset()}
               />
             </StyledContainerController>
           )}

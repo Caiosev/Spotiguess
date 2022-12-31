@@ -3,14 +3,18 @@ import words from 'random-words';
 import { Music } from '../types/Music';
 
 const valdateTrack = (data: any) => {
-  if (
-    data.tracks.items[0].popularity < 70 ||
-    data.tracks.total === 0 ||
-    data.tracks.items.lemgth === 0
-  ) {
+  try {
+    if (
+      data.tracks.items[0].popularity < 70 ||
+      data.tracks.total === 0 ||
+      data.tracks.items.lemgth === 0
+    ) {
+      return false;
+    }
+    return true;
+  } catch (error) {
     return false;
   }
-  return true;
 };
 
 export default async function getMusic(token: string): Promise<Music | null> {

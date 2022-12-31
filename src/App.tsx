@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { StyledWrapperApp } from './App.style';
-import Audio from './components/Audio/Audio';
 import Card from './components/Card/Card';
+import Audio from './components/Controller/Controller';
 import Input from './components/Input/Input';
 import { MusicProvider } from './contexts/MusicContex';
 import { TokenProvider } from './contexts/TokenContext';

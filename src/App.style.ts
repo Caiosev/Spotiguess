@@ -9,13 +9,7 @@ export const StyledWrapperApp = styled.div`
   align-items: center;
   justify-content: center;
   gap: 24px;
-
-  #iconPlay {
-    cursor: pointer;
-    transition: 0.3s ease-in-out all;
-    &:hover {
-      transform: scale(1.2);
-    }
+  
   }
 
   .result {

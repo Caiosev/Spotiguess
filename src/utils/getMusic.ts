@@ -4,7 +4,7 @@ import { Music } from '../types/Music';
 
 const valdateTrack = (data: any) => {
   if (
-    data.tracks.items[0].popularity < 60 ||
+    data.tracks.items[0].popularity < 70 ||
     data.tracks.total === 0 ||
     data.tracks.items.lemgth === 0
   ) {

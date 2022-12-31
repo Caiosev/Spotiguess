@@ -4,6 +4,7 @@ import { StyledWrapperApp } from './App.style';
 import Card from './components/Card/Card';
 import Audio from './components/Controller/Controller';
 import Input from './components/Input/Input';
+import Score from './components/Score/Score';
 import { MusicProvider } from './contexts/MusicContex';
 import { TokenProvider } from './contexts/TokenContext';
 
@@ -15,6 +16,7 @@ function App() {
           <Card />
           <Audio />
           <Input />
+          <Score />
         </StyledWrapperApp>
       </MusicProvider>
     </TokenProvider>

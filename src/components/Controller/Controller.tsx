@@ -9,11 +9,17 @@ export default function Audio() {
   const { music, isCorrectArtistName, isCorrectSongName } = useMusicContext();
 
   const handleNextMusic = () => {
-    const currentPoints = localStorage.getItem('points');
-    if (!currentPoints) {
-      localStorage.setItem('points', '5');
+    const streak = localStorage.getItem('streak');
+    const maxStreak = localStorage.getItem('maxStreak');
+
+    if (!streak) {
+      localStorage.setItem('streak', '1');
+      localStorage.setItem('maxStreak', '1');
     } else {
-      localStorage.setItem('points', `${Number(currentPoints) + 5}`);
+      localStorage.setItem('streak', `${Number(streak) + 1}`);
+      if (Number(streak) + 1 > Number(maxStreak)) {
+        localStorage.setItem('maxStreak', `${Number(streak) + 1}`);
+      }
     }
     location.reload();
   };

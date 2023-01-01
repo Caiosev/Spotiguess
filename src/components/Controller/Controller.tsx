@@ -5,10 +5,10 @@ import {
   AiFillForward,
   AiFillPlayCircle,
   AiFillStepForward,
-  AiOutlineReload,
 } from 'react-icons/ai';
 
 import { useMusicContext } from '../../contexts/MusicContex';
+import { useTokenContext } from '../../contexts/TokenContext';
 import {
   StyledAudio,
   StyledContainerController,
@@ -24,7 +24,13 @@ export default function Audio() {
     setisCorrectArtistName,
     isCorrectSongName,
     setShowCover,
+    setIsCorrectSongName,
+    setMusic,
+    streak,
+    setStreak,
   } = useMusicContext();
+
+  const { getNewMusic } = useTokenContext();
 
   const handleReset = () => {
     localStorage.setItem('streak', '0');
@@ -41,19 +47,19 @@ export default function Audio() {
   };
 
   const handleNextMusic = () => {
-    const streak = localStorage.getItem('streak');
     const maxStreak = localStorage.getItem('maxStreak');
 
-    if (!streak) {
-      localStorage.setItem('streak', '1');
-      localStorage.setItem('maxStreak', '1');
-    } else {
-      localStorage.setItem('streak', `${Number(streak) + 1}`);
-      if (Number(streak) + 1 > Number(maxStreak)) {
-        localStorage.setItem('maxStreak', `${Number(streak) + 1}`);
-      }
+    if (streak + 1 > Number(maxStreak)) {
+      localStorage.setItem('maxStreak', `${Number(streak) + 1}`);
     }
-    location.reload();
+
+    setStreak(streak + 1);
+    setNumberHints(0);
+    setisCorrectArtistName(false);
+    setShowCover(false);
+    setIsCorrectSongName(false);
+    setMusic(null);
+    getNewMusic();
   };
 
   const playAudio = () => {

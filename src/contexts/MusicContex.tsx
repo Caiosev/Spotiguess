@@ -12,12 +12,16 @@ export type MusicState = {
   setisCorrectArtistName: (isCorrectArtistName: boolean) => void;
   showCover: boolean;
   setShowCover: (showCover: boolean) => void;
+  setMusic: (music: Music | null) => void;
+  streak: number;
+  setStreak: (streak: number) => void;
 };
 
 const MusicContext = createContext<MusicState>({
   music: null,
   isCorrectSongName: false,
   showCover: false,
+  streak: 0,
   setShowCover: () => {
     /* */
   },
@@ -28,11 +32,18 @@ const MusicContext = createContext<MusicState>({
   setisCorrectArtistName: () => {
     /* */
   },
+  setMusic: () => {
+    /* */
+  },
+  setStreak: () => {
+    /* */
+  },
 });
 
 export const MusicProvider: FC<React.ReactNode> = ({ children }) => {
   const [music, setMusic] = useState<Music | null>(null);
   const [isCorrectSongName, setIsCorrectSongName] = useState<boolean>(false);
+  const [streak, setStreak] = useState<number>(0);
   const [isCorrectArtistName, setisCorrectArtistName] = useState<boolean>(false);
   const [showCover, setShowCover] = useState<boolean>(
     isCorrectSongName && isCorrectArtistName ? true : false,
@@ -57,6 +68,9 @@ export const MusicProvider: FC<React.ReactNode> = ({ children }) => {
         setisCorrectArtistName,
         showCover,
         setShowCover,
+        setMusic,
+        streak,
+        setStreak,
       }}
     >
       {children}

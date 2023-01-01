@@ -1,11 +1,11 @@
 import React from 'react';
 
+import { useMusicContext } from '../../contexts/MusicContex';
 import { StyledText, StyledWrapperScore } from './Score.style';
 
 export default function Score() {
-  const streak = localStorage.getItem('streak');
+  const { streak } = useMusicContext();
   const maxStreak = localStorage.getItem('maxStreak');
-  console.log(streak, maxStreak);
   return (
     <StyledWrapperScore>
       <StyledText>

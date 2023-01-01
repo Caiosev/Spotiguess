@@ -5,14 +5,24 @@ import { useMusicContext } from '../../contexts/MusicContex';
 import { StyledInput, StyledWrapperInput } from './Input.style';
 
 export default function Input() {
-  const { music, setIsCorrectSongName, setisCorrectArtistName } = useMusicContext();
+  const {
+    music,
+    setIsCorrectSongName,
+    setisCorrectArtistName,
+    setShowCover,
+    isCorrectArtistName,
+    isCorrectSongName,
+  } = useMusicContext();
   const [inputName, setInputName] = React.useState<string>('');
   const [isCorrectAnwser, setIsCorrectAnswer] = React.useState<boolean | null>(null);
 
+  React.useEffect(() => {
+    if (isCorrectSongName && isCorrectArtistName) {
+      setShowCover(true);
+    }
+  }, [isCorrectSongName, isCorrectArtistName]);
+
   const handleSubmit = () => {
-    console.log(
-      inputName.toLowerCase() === music?.items[0].artists[0].name.toLowerCase(),
-    );
     if (inputName.toLowerCase() === music?.items[0].name.toLowerCase()) {
       setIsCorrectSongName(true);
       setIsCorrectAnswer(true);

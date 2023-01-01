@@ -63,8 +63,10 @@ export default function Audio() {
   };
 
   const playAudio = () => {
-    const audioEl = document.getElementById('audio-element');
-    audioEl.play();
+    const audioEl = document.getElementById('audio-element') as HTMLAudioElement | null;
+    if (audioEl !== null) {
+      audioEl.play();
+    }
   };
 
   return (

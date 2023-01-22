@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
 
-import { useMusicContext } from '../../contexts/MusicContex';
+import { useMusicContext } from '../../contexts/MusicContext';
 import {
   ImageCover,
   StyledUnblurredArea,

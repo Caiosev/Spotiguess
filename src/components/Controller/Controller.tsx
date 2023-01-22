@@ -7,7 +7,7 @@ import {
   AiFillStepForward,
 } from 'react-icons/ai';
 
-import { useMusicContext } from '../../contexts/MusicContex';
+import { useMusicContext } from '../../contexts/MusicContext';
 import { useTokenContext } from '../../contexts/TokenContext';
 import {
   StyledAudio,

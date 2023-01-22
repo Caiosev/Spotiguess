@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useMusicContext } from '../../contexts/MusicContex';
+import { useMusicContext } from '../../contexts/MusicContext';
 import { StyledText, StyledWrapperScore } from './Score.style';
 
 export default function Score() {

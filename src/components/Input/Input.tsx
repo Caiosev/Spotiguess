@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoMdCheckmark, IoMdClose } from 'react-icons/io';
 
-import { useMusicContext } from '../../contexts/MusicContex';
+import { useMusicContext } from '../../contexts/MusicContext';
 import { StyledInput, StyledWrapperInput } from './Input.style';
 
 export default function Input() {
